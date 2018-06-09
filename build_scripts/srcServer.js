@@ -1,10 +1,10 @@
-var express = require('express');
-var path = require('path');
-var open = require('open');
+import express from 'express';
+import path from 'path';
+import open from 'open';
 
 //set port number and start Express
-var port = 3000;
-var app = express();
+const PORT_NUMBER = 3000;
+const app = express();
 
 //handle routes with function
 app.get('/', function(request, response){
@@ -13,10 +13,10 @@ app.get('/', function(request, response){
 });
 
 //set express to listen on the port
-app.listen(port, function(err){
+app.listen(PORT_NUMBER, function(err){
   if (err){
     console.log(err);
   } else {
-    open('http://localhost:' + port);
+    open('http://localhost:' + PORT_NUMBER);
   }
 });
