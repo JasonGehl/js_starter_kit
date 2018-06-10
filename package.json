@@ -4,11 +4,13 @@
   "description": "JavaScript development environment starter kit",
   "scripts": {
     "prestart": "babel-node build_scripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src lint:watch",
+    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
     "lint": "esw webpack.config.* src build_scripts --color",
     "lint:watch": "npm run lint -- --watch",
     "open:src": "babel-node build_scripts/srcServer.js",
-    "security-check": "nsp check"
+    "security-check": "nsp check",
+    "test": "nyc mocha --reporter progress build_scripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Jason Gehl",
   "license": "MIT",
@@ -42,6 +44,7 @@
     "npm-run-all": "3.1.1",
     "nsp": "^3.2.1",
     "numeral": "1.5.3",
+    "nyc": "^12.0.2",
     "open": "0.0.5",
     "rimraf": "2.5.4",
     "style-loader": "0.13.1",
