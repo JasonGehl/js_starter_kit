@@ -67,3 +67,4 @@ typings/
 .serverless
 
 /src/api/db.json
+/dist
