@@ -4,7 +4,9 @@
   "description": "JavaScript development environment starter kit",
   "scripts": {
     "prestart": "babel-node build_scripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --parallel security-check open:src lint:watch",
+    "lint": "esw webpack.config.* src build_scripts --color",
+    "lint:watch": "npm run lint -- --watch",
     "open:src": "babel-node build_scripts/srcServer.js",
     "security-check": "nsp check"
   },
@@ -27,7 +29,7 @@
     "css-loader": "0.25.0",
     "eslint": "3.8.1",
     "eslint-plugin-import": "2.0.1",
-    "eslint-watch": "2.1.14",
+    "eslint-watch": "^2.1.14",
     "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
